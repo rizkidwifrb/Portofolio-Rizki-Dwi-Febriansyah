@@ -10,11 +10,11 @@ const programs = [
 ];
 
 const activities = [
-  ["Maulid Nabi", "Keagamaan", "maulid"],
-  ["Lomba Futsal", "Olahraga", "futsal"],
-  ["Kerja Bakti", "Lingkungan", "bakti"],
-  ["Lomba 17-an", "Kemerdekaan", "merdeka"],
-  ["Panggung Ceria", "Kebersamaan", "panggung"],
+  ["Parade 17-an", "Kemerdekaan", "grid-a crop-a-tl"],
+  ["Karnaval Kostum", "Kreativitas", "grid-a crop-a-tr"],
+  ["Pemuda RT 05", "Kebersamaan", "grid-b crop-b-top"],
+  ["Festival Bogor", "Prestasi Warga", "grid-b crop-b-mid"],
+  ["Warga Bergerak", "Kebersamaan", "grid-b crop-b-bottom"],
 ];
 
 function Counter({ value, suffix = "", label }: { value: number; suffix?: string; label: string }) {
@@ -113,11 +113,12 @@ export default function Home() {
         <div className="grid-bg" />
         <div className="hero-meta"><span>KARANG TARUNA</span><span>RT 05 / RW 12</span><span>BOGOR · INDONESIA</span></div>
         <h1><span>KARTUN</span><b>0</b><span>5</span></h1>
+        <figure className="hero-photo hero-photo-wide photo-crop grid-b crop-b-mid"><figcaption>FESTIVAL BOGOR · 2026</figcaption></figure>
+        <figure className="hero-photo hero-photo-tall photo-crop grid-a crop-a-tr"><figcaption>AKSI 17-AN</figcaption></figure>
         <div className="tile tile-a"><i /><b>GERAK</b></div>
         <div className="tile tile-b"><b>50+</b><small>PEMUDA AKTIF</small></div>
         <div className="tile tile-c"><i /><small>05 / 12</small></div>
         <div className="hero-signal" aria-hidden="true"><span>AKSI</span><b>2026</b></div>
-        <div className="tile tile-d"><small>AGENDA UTAMA</small><b>17</b><span>AGT / 2026</span></div>
         <div className="hero-stream" aria-label="Kegiatan KARTUN05">
           <span><i>01</i> MAULID</span><span><i>02</i> FUTSAL</span><span><i>03</i> KERJA BAKTI</span><span><i>04</i> 17 AGUSTUS</span>
         </div>
@@ -145,21 +146,42 @@ export default function Home() {
 
       <section className="activities pad" id="kegiatan">
         <div className="section-head" data-reveal><span>[03]</span><span>JEJAK KEGIATAN</span><span>[05] TERLAKSANA</span></div>
-        <div className="intro"><h2 data-reveal>BUKAN CUMA<br />RENCANA.</h2><p data-reveal>Lima jejak awal dari kegiatan yang sudah mempertemukan pemuda dan warga RT 05.</p></div>
+        <div className="intro"><h2 data-reveal>BUKAN CUMA<br />RENCANA.</h2><p data-reveal>Cuplikan kegiatan 17 Agustus, festival, dan kebersamaan pemuda bersama warga RT 05.</p></div>
         <div className="activity-grid">{activities.map(([title, category, art], i) => <article key={title} className={`activity card-${i + 1}`} data-reveal>
-          <div className={`visual ${art}`} role="img" aria-label={`Visual ${title}`}><span>0{i + 1}</span><i /><b>K05</b></div>
+          <div className={`visual photo-visual photo-crop ${art}`} role="img" aria-label={`Dokumentasi ${title}`}><span>0{i + 1}</span><b>K05</b></div>
           <small><span>{category}</span><span>TERLAKSANA</span></small><h3>{title}</h3>
         </article>)}</div>
+        <p className="activity-archive" data-reveal>ARSIP KEGIATAN LAIN · MAULID NABI · LOMBA FUTSAL · KERJA BAKTI · PANGGUNG CERIA</p>
+      </section>
+
+      <section className="motion pad" aria-label="Dokumentasi video KARTUN05">
+        <div className="section-head light" data-reveal><span>[04]</span><span>GERAK DALAM REKAM</span><span>VIDEO KEGIATAN</span></div>
+        <div className="intro"><h2 data-reveal>SUASANA<br />YANG HIDUP.</h2><p data-reveal>Dua cuplikan dari semarak kemerdekaan dan karnaval warga KARTUN05.</p></div>
+        <div className="motion-grid">
+          <article className="motion-card" data-reveal>
+            <video autoPlay muted loop playsInline controls preload="metadata" poster="/media/kartun-video-01-poster.jpg"><source src="/media/kartun-video-01.mp4" type="video/mp4" />Browser Anda tidak mendukung video.</video>
+            <small><span>VIDEO 01</span><span>SEMARAK KEMERDEKAAN</span></small>
+          </article>
+          <article className="motion-card" data-reveal>
+            <video autoPlay muted loop playsInline controls preload="metadata" poster="/media/kartun-video-02-poster.jpg"><source src="/media/kartun-video-02.mp4" type="video/mp4" />Browser Anda tidak mendukung video.</video>
+            <small><span>VIDEO 02</span><span>KARNAVAL WARGA</span></small>
+          </article>
+        </div>
       </section>
 
       <section className="agenda pad" id="agenda">
-        <div className="section-head light" data-reveal><span>[04]</span><span>AGENDA 2026</span><span>TERBUKA UNTUK WARGA</span></div>
+        <div className="section-head light" data-reveal><span>[05]</span><span>AGENDA 2026</span><span>TERBUKA UNTUK WARGA</span></div>
         <div className="agenda-body"><div className="date" data-reveal><b>17</b><span>AGUSTUS</span></div><div className="agenda-copy" data-reveal><small>SEMARAK KEMERDEKAAN 2026</small><h2>LOMBA.<br />PANGGUNG.<br /><em>DOORPRIZE.</em></h2><p>Rayakan kemerdekaan bersama KARTUN05. Informasi perlombaan, waktu, dan lokasi dapat ditanyakan langsung kepada admin.</p><a href={whatsapp} target="_blank" rel="noreferrer">CHAT ADMIN UNTUK DAFTAR <Arrow /></a></div></div>
       </section>
 
       <section className="social pad">
-        <div className="section-head" data-reveal><span>[05]</span><span>DOKUMENTASI</span><span>INSTAGRAM</span></div>
-        <div><p data-reveal>Ikuti kegiatan, proses, dan cerita terbaru kami.</p><a href="https://www.instagram.com/kartun512_/" target="_blank" rel="noreferrer" data-reveal>@KARTUN512_ <Arrow /></a></div>
+        <div className="section-head" data-reveal><span>[06]</span><span>DOKUMENTASI</span><span>INSTAGRAM</span></div>
+        <div className="social-gallery" data-reveal>
+          <figure className="gallery-shot photo-crop grid-a crop-a-bl"><figcaption>PARADE</figcaption></figure>
+          <figure className="gallery-shot photo-crop grid-a crop-a-br"><figcaption>PEMUDA RT 05</figcaption></figure>
+          <figure className="gallery-shot wide photo-crop grid-b crop-b-bottom"><figcaption>WARGA BERSAMA</figcaption></figure>
+        </div>
+        <div className="social-link"><p data-reveal>Ikuti kegiatan, proses, dan cerita terbaru kami.</p><a href="https://www.instagram.com/kartun512_/" target="_blank" rel="noreferrer" data-reveal>@KARTUN512_ <Arrow /></a></div>
         <aside>GERAK BERSAMA · TUMBUH BERSAMA · KARTUN05 · GERAK BERSAMA · TUMBUH BERSAMA · KARTUN05 ·</aside>
       </section>
     </main>
